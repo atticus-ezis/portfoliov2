@@ -2,6 +2,7 @@ import { Github, Linkedin, Mail, Phone, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useScrollY } from "@/hooks/use-scroll";
+import bgHero from "@/assets/bg-hero.png";
 
 const Hero = () => {
   const scrollY = useScrollY();
@@ -9,34 +10,26 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Animated background waves with parallax */}
-      <div 
-        className="absolute inset-0 overflow-hidden opacity-30"
+      {/* Animated background image with parallax and pan */}
+      <motion.div 
+        className="absolute inset-0 overflow-hidden opacity-40"
         style={{ transform: `translateY(${parallaxOffset}px)` }}
+        animate={{
+          x: [0, -50, 0],
+          y: [0, 30, 0],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
       >
-        <svg className="absolute bottom-0 left-0 w-full h-auto animate-float" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M0,200 Q300,100 600,200 T1200,200 L1200,400 L0,400 Z"
-            fill="url(#gradient1)"
-            opacity="0.5"
-          />
-          <path
-            d="M0,250 Q300,150 600,250 T1200,250 L1200,400 L0,400 Z"
-            fill="url(#gradient2)"
-            opacity="0.3"
-          />
-          <defs>
-            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style={{ stopColor: "hsl(195, 100%, 60%)", stopOpacity: 1 }} />
-              <stop offset="100%" style={{ stopColor: "hsl(280, 100%, 70%)", stopOpacity: 1 }} />
-            </linearGradient>
-            <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style={{ stopColor: "hsl(280, 100%, 70%)", stopOpacity: 1 }} />
-              <stop offset="100%" style={{ stopColor: "hsl(195, 100%, 60%)", stopOpacity: 1 }} />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
+        <img 
+          src={bgHero} 
+          alt="Background" 
+          className="w-full h-full object-cover scale-110"
+        />
+      </motion.div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
