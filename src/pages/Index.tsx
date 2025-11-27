@@ -5,12 +5,10 @@ import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import CursorEffect from "@/components/CursorEffect";
 
 const Index = () => {
   return (
-    <div className="min-h-screen cursor-none">
-      <CursorEffect />
+    <div className="min-h-screen">
       <Navigation />
       <Hero />
       <Skills />
