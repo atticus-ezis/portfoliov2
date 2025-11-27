@@ -1,11 +1,19 @@
 import { Github, Linkedin, Mail, Phone, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { useScrollY } from "@/hooks/use-scroll";
 
 const Hero = () => {
+  const scrollY = useScrollY();
+  const parallaxOffset = scrollY * 0.5;
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Animated background waves */}
-      <div className="absolute inset-0 overflow-hidden opacity-30">
+      {/* Animated background waves with parallax */}
+      <div 
+        className="absolute inset-0 overflow-hidden opacity-30"
+        style={{ transform: `translateY(${parallaxOffset}px)` }}
+      >
         <svg className="absolute bottom-0 left-0 w-full h-auto animate-float" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M0,200 Q300,100 600,200 T1200,200 L1200,400 L0,400 Z"
@@ -33,16 +41,30 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
           {/* Avatar */}
-          <div className="flex-shrink-0 animate-fade-in">
-            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary shadow-[0_0_50px_rgba(59,195,255,0.5)] hover-glow">
+          <motion.div 
+            className="flex-shrink-0"
+            initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.div 
+              className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary shadow-[0_0_50px_rgba(59,195,255,0.5)] hover-glow"
+              whileHover={{ scale: 1.05, rotate: 5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
                 <span className="text-6xl md:text-8xl font-bold text-gradient">AE</span>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Content */}
-          <div className="flex-1 text-center md:text-left animate-fade-in">
+          <motion.div 
+            className="flex-1 text-center md:text-left"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             <div className="flex gap-4 justify-center md:justify-start mb-4">
               <Button variant="ghost" size="icon" asChild className="hover:text-primary">
                 <a href="https://github.com/atticusezis" target="_blank" rel="noopener noreferrer">
@@ -82,15 +104,20 @@ const Hero = () => {
               </a>
             </div>
 
-            <div className="mt-8 flex gap-4 justify-center md:justify-start">
+            <motion.div 
+              className="mt-8 flex gap-4 justify-center md:justify-start"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
               <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 hover-glow">
                 <a href="#contact">Get In Touch</a>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10">
                 <a href="#experience">View Experience</a>
               </Button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
