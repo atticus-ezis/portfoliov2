@@ -1,7 +1,10 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Code2, Database, Cloud, TestTube } from "lucide-react";
+import { motion } from "framer-motion";
+import { useScrollY } from "@/hooks/use-scroll";
 
 const Skills = () => {
+  const scrollY = useScrollY();
   const skillCategories = [
     {
       icon: Code2,
@@ -32,22 +35,32 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20 relative">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Technical Skills</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Specialized in backend development with a focus on building scalable, maintainable applications
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {skillCategories.map((category, index) => {
             const Icon = category.icon;
             return (
-              <Card
+              <motion.div
                 key={index}
-                className="bg-card border-border hover-glow animate-fade-in backdrop-blur-sm"
-                style={{ animationDelay: `${index * 100}ms` }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8, transition: { duration: 0.2 } }}
               >
+                <Card className="bg-card border-border hover-glow backdrop-blur-sm h-full">
                 <CardHeader>
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                     <Icon className="h-6 w-6 text-primary" />
@@ -68,6 +81,7 @@ const Skills = () => {
                   </div>
                 </CardContent>
               </Card>
+              </motion.div>
             );
           })}
         </div>
