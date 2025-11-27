@@ -1,38 +1,41 @@
 import { Github, Linkedin, Mail, Phone, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { useScrollY } from "@/hooks/use-scroll";
 
 const Hero = () => {
-  const { ref, inView } = useInView({
-    threshold: 0.2,
-    triggerOnce: true,
-  });
+  const scrollY = useScrollY();
+  const parallaxOffset = scrollY * 0.5;
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20" ref={ref}>
-      {/* Animated pattern background */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.15),transparent_50%)]" />
-        <div 
-          className="absolute inset-0 animate-pulse-glow"
-          style={{
-            backgroundImage: `
-              radial-gradient(circle at 20% 50%, hsl(var(--primary)/0.1) 0%, transparent 50%),
-              radial-gradient(circle at 80% 50%, hsl(var(--secondary)/0.1) 0%, transparent 50%),
-              linear-gradient(90deg, transparent 49%, hsl(var(--primary)/0.05) 49%, hsl(var(--primary)/0.05) 51%, transparent 51%),
-              linear-gradient(0deg, transparent 49%, hsl(var(--primary)/0.05) 49%, hsl(var(--primary)/0.05) 51%, transparent 51%)
-            `,
-            backgroundSize: '100% 100%, 100% 100%, 40px 40px, 40px 40px',
-          }}
-        />
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle, hsl(var(--primary)/0.15) 1px, transparent 1px)`,
-            backgroundSize: '30px 30px',
-          }}
-        />
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+      {/* Animated background waves with parallax */}
+      <div 
+        className="absolute inset-0 overflow-hidden opacity-30"
+        style={{ transform: `translateY(${parallaxOffset}px)` }}
+      >
+        <svg className="absolute bottom-0 left-0 w-full h-auto animate-float" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0,200 Q300,100 600,200 T1200,200 L1200,400 L0,400 Z"
+            fill="url(#gradient1)"
+            opacity="0.5"
+          />
+          <path
+            d="M0,250 Q300,150 600,250 T1200,250 L1200,400 L0,400 Z"
+            fill="url(#gradient2)"
+            opacity="0.3"
+          />
+          <defs>
+            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style={{ stopColor: "hsl(195, 100%, 60%)", stopOpacity: 1 }} />
+              <stop offset="100%" style={{ stopColor: "hsl(280, 100%, 70%)", stopOpacity: 1 }} />
+            </linearGradient>
+            <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style={{ stopColor: "hsl(280, 100%, 70%)", stopOpacity: 1 }} />
+              <stop offset="100%" style={{ stopColor: "hsl(195, 100%, 60%)", stopOpacity: 1 }} />
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -41,7 +44,7 @@ const Hero = () => {
           <motion.div 
             className="flex-shrink-0"
             initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-            animate={inView ? { opacity: 1, scale: 1, rotate: 0 } : {}}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.div 
@@ -59,7 +62,7 @@ const Hero = () => {
           <motion.div 
             className="flex-1 text-center md:text-left"
             initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="flex gap-4 justify-center md:justify-start mb-4">
@@ -104,7 +107,7 @@ const Hero = () => {
             <motion.div 
               className="mt-8 flex gap-4 justify-center md:justify-start"
               initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
               <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 hover-glow">
