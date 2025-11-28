@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -70,6 +71,7 @@ const Navigation = () => {
             >
               Contact
             </Button>
+            <ThemeToggle />
           </div>
         </div>
       </div>
