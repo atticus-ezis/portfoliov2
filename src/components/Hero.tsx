@@ -13,7 +13,7 @@ const Hero = () => {
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Animated background image with parallax and pan */}
       <motion.div 
-        className="absolute inset-0 overflow-hidden opacity-40"
+        className="absolute inset-0 opacity-40"
         style={{ transform: `translateY(${parallaxOffset}px)` }}
         animate={{
           x: [0, -50, 0],
