@@ -1,35 +1,18 @@
 import { Github, Linkedin, Mail, Phone, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { useScrollY } from "@/hooks/use-scroll";
-import bgHero from "@/assets/bg-hero.png";
+import { FloatingLines } from "@/components/FloatingLines";
 
 const Hero = () => {
-  const scrollY = useScrollY();
-  const parallaxOffset = scrollY * 0.5;
-
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Animated background image with parallax and pan */}
-      <motion.div 
-        className="absolute inset-0 overflow-hidden opacity-40"
-        style={{ transform: `translateY(${parallaxOffset}px)` }}
-        animate={{
-          x: [0, -50, 0],
-          y: [0, 30, 0],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      >
-        <img 
-          src={bgHero} 
-          alt="Background" 
-          className="w-full h-full object-cover scale-110"
-        />
-      </motion.div>
+      {/* Floating Lines Background */}
+      <FloatingLines 
+        lineCount={10}
+        lineDistance={4}
+        animationSpeed={0.5}
+        bendStrength={-2.5}
+      />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
