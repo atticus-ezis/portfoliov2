@@ -58,6 +58,13 @@ const Navigation = () => {
             </Button>
             <Button
               variant="ghost"
+              onClick={() => scrollToSection("blog")}
+              className="hover:text-primary"
+            >
+              Blog
+            </Button>
+            <Button
+              variant="ghost"
               onClick={() => scrollToSection("contact")}
               className="hover:text-primary"
             >
