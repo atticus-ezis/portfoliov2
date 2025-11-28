@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useScrollY } from "@/hooks/use-scroll";
 import bgHero from "@/assets/bg-hero.png";
+import profileImage from "@/assets/profile.png";
 
 const Hero = () => {
   const scrollY = useScrollY();
@@ -45,9 +46,11 @@ const Hero = () => {
               whileHover={{ scale: 1.05, rotate: 5 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                <span className="text-6xl md:text-8xl font-bold text-gradient">AE</span>
-              </div>
+              <img 
+                src={profileImage} 
+                alt="Atticus Ezis" 
+                className="w-full h-full object-cover"
+              />
             </motion.div>
           </motion.div>
 
