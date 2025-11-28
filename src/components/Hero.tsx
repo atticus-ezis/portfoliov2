@@ -34,15 +34,113 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
-          {/* Avatar */}
+          {/* Avatar with decorative background */}
           <motion.div 
-            className="flex-shrink-0"
+            className="flex-shrink-0 relative"
             initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
+            {/* Decorative background elements */}
+            <div className="absolute inset-0 -z-10">
+              {/* Large purple gradient circle */}
+              <motion.div 
+                className="absolute -left-20 -top-20 w-72 h-72 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] opacity-30"
+                style={{
+                  background: "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%)",
+                }}
+                animate={{
+                  scale: [1, 1.1, 1],
+                  rotate: [0, 10, 0],
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+              
+              {/* Smaller accent circle */}
+              <motion.div 
+                className="absolute -right-8 -top-12 w-32 h-32 rounded-full opacity-40"
+                style={{
+                  background: "radial-gradient(circle, hsl(var(--accent)) 0%, transparent 70%)",
+                }}
+                animate={{
+                  y: [0, -20, 0],
+                  scale: [1, 1.15, 1],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+              
+              {/* Decorative squiggly line */}
+              <motion.svg 
+                className="absolute -left-16 top-1/2 w-24 h-24 opacity-20"
+                viewBox="0 0 100 100"
+                animate={{
+                  rotate: [0, 360],
+                }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+              >
+                <path
+                  d="M20,50 Q30,30 40,50 T60,50 Q70,70 80,50"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  fill="none"
+                  className="text-primary"
+                />
+              </motion.svg>
+              
+              {/* Decorative circles pattern */}
+              <motion.svg 
+                className="absolute -right-12 bottom-4 w-28 h-28 opacity-20"
+                viewBox="0 0 100 100"
+                animate={{
+                  rotate: [0, -360],
+                }}
+                transition={{
+                  duration: 25,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+              >
+                <circle cx="50" cy="20" r="4" fill="currentColor" className="text-primary" />
+                <circle cx="70" cy="35" r="4" fill="currentColor" className="text-primary" />
+                <circle cx="75" cy="60" r="4" fill="currentColor" className="text-primary" />
+                <circle cx="55" cy="75" r="4" fill="currentColor" className="text-primary" />
+                <circle cx="30" cy="70" r="4" fill="currentColor" className="text-primary" />
+                <circle cx="25" cy="45" r="4" fill="currentColor" className="text-primary" />
+              </motion.svg>
+              
+              {/* Bottom gradient blob */}
+              <motion.div 
+                className="absolute -bottom-12 left-1/2 -translate-x-1/2 w-48 h-48 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] opacity-20"
+                style={{
+                  background: "linear-gradient(225deg, hsl(var(--accent)) 0%, hsl(var(--primary)) 100%)",
+                }}
+                animate={{
+                  scale: [1, 1.2, 1],
+                  rotate: [0, -15, 0],
+                }}
+                transition={{
+                  duration: 10,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+            </div>
+
+            {/* Profile image */}
             <motion.div 
-              className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary shadow-[0_0_50px_rgba(59,195,255,0.5)] hover-glow"
+              className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary shadow-[0_0_50px_rgba(59,195,255,0.5)] hover-glow z-10"
               whileHover={{ scale: 1.05, rotate: 5 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
