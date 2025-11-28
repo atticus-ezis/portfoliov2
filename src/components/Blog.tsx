@@ -5,38 +5,30 @@ import { motion } from "framer-motion";
 
 const Blog = () => {
   const featuredPost = {
-    title: "My Featured Blog Post Title",
-    description: "A comprehensive look at an important topic. This is your featured article that will appear larger and more prominent at the top of the blog section. Add your most important or recent article here.",
-    date: "March 15, 2024",
-    readTime: "8 min read",
-    tags: ["Technology", "Development", "Tutorial"],
-    link: "https://medium.com/@yourusername/your-article",
+    title: "JWT Hybrid Authentication with Django & dj-rest-auth",
+    description: "A useful Django CookieCutter I designed with fully functional API endpoints for account management using JWT. Mobile and browser friendly.",
+    date: "Published on Medium",
+    readTime: "10 min read",
+    tags: ["Django", "JWT", "Authentication", "Backend"],
+    link: "https://medium.com/@atticus.ezis/jwt-hybrid-authentication-with-django-dj-rest-auth-6b080eb04a1a",
   };
 
   const posts = [
     {
-      title: "Blog Post Title 1",
-      description: "Brief description of your blog post. This should be an engaging summary that makes readers want to click through to read more.",
-      date: "March 10, 2024",
-      readTime: "5 min read",
-      tags: ["React", "JavaScript"],
-      link: "https://medium.com/@yourusername/your-article-1",
+      title: "Understanding Common Authentication Methods",
+      description: "Helpful way to understand commonly used authentication methods. A comprehensive guide for developers.",
+      date: "Published on Medium",
+      readTime: "7 min read",
+      tags: ["Authentication", "Security", "Backend"],
+      link: "https://medium.com/@atticus.ezis",
     },
     {
-      title: "Blog Post Title 2",
-      description: "Another interesting blog post description. Share insights, tutorials, or thoughts from your Medium articles.",
-      date: "March 5, 2024",
-      readTime: "6 min read",
-      tags: ["Python", "Backend"],
-      link: "https://medium.com/@yourusername/your-article-2",
-    },
-    {
-      title: "Blog Post Title 3",
-      description: "Your third blog post with valuable content. Each post should highlight different aspects of your expertise.",
-      date: "February 28, 2024",
-      readTime: "4 min read",
-      tags: ["Web Design", "UI/UX"],
-      link: "https://medium.com/@yourusername/your-article-3",
+      title: "Understanding JWT Refresh Tokens, Blacklists & Rotations",
+      description: "A very useful and non-technical way to understand Authorization Tokens for Backend Devs.",
+      date: "Published on Medium",
+      readTime: "8 min read",
+      tags: ["JWT", "Security", "Tokens"],
+      link: "https://medium.com/@atticus.ezis/understanding-jwt-refresh-tokens-blacklists-and-rotations-9a740cc619fa",
     },
   ];
 
@@ -144,7 +136,7 @@ const Blog = () => {
 
         <div className="text-center mt-12">
           <Button asChild variant="outline" size="lg">
-            <a href="https://medium.com/@yourusername" target="_blank" rel="noopener noreferrer">
+            <a href="https://medium.com/@atticus.ezis" target="_blank" rel="noopener noreferrer">
               <BookOpen className="mr-2 h-5 w-5" />
               View All Posts on Medium
             </a>
