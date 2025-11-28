@@ -75,4 +75,49 @@ All colors MUST be HSL.
     box-shadow: var(--shadow-glow);
     transform: translateY(-2px);
   }
+
+  @keyframes floating-lines-move {
+    0% {
+      transform: translate3d(-10%, var(--line-offset, 0px), 0) skewX(-12deg);
+    }
+    50% {
+      transform: translate3d(10%, calc(var(--line-offset, 0px) - 20px), 0) skewX(-12deg);
+    }
+    100% {
+      transform: translate3d(-10%, var(--line-offset, 0px), 0) skewX(-12deg);
+    }
+  }
+
+  .floating-lines-wrapper {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+    opacity: 0.4;
+    background: radial-gradient(circle at top, hsl(var(--primary) / 0.12), transparent 60%);
+  }
+
+  .floating-line {
+    position: absolute;
+    left: -10%;
+    top: 50%;
+    width: 120%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--primary) / 0),
+      hsl(var(--primary) / 0.7),
+      hsl(var(--secondary) / 0.4),
+      hsl(var(--primary) / 0),
+      transparent
+    );
+    opacity: var(--line-opacity, 0.5);
+    transform-origin: center;
+    filter: drop-shadow(0 0 12px hsl(var(--primary) / 0.4));
+    animation: floating-lines-move var(--line-duration, 18s) ease-in-out infinite;
+    animation-delay: calc(var(--line-index, 0) * -0.6s);
+  }
 }
+
