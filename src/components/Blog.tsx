@@ -143,7 +143,7 @@ const Blog = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10">
+          <Button asChild variant="outline" size="lg">
             <a href="https://medium.com/@yourusername" target="_blank" rel="noopener noreferrer">
               <BookOpen className="mr-2 h-5 w-5" />
               View All Posts on Medium

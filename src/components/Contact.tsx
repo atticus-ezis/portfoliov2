@@ -109,7 +109,6 @@ const Contact = () => {
                       key={index}
                       asChild
                       variant="outline"
-                      className="border-primary text-primary hover:bg-primary/10"
                     >
                       <a href={social.link} target="_blank" rel="noopener noreferrer">
                         <Icon className="mr-2 h-4 w-4" />

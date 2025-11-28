@@ -108,7 +108,7 @@ const Projects = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10">
+          <Button asChild variant="outline" size="lg">
             <a href="https://github.com/atticusezis" target="_blank" rel="noopener noreferrer">
               <Github className="mr-2 h-5 w-5" />
               View More on GitHub
