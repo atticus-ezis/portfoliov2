@@ -58,7 +58,7 @@ const Index = () => {
         <div className="">
           <LogoLoop
             logos={techLogos}
-            speed={40}
+            speed={20}
             direction="left"
             logoHeight={48}
             gap={40}

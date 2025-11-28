@@ -10,7 +10,7 @@ const Hero = () => {
   const parallaxOffset = scrollY * 0.5;
 
   return (
-    <section id="home" className="h-auto lg:h-[46vw] flex items-center justify-center relative overflow-hidden pt-20 pb-20">
+    <section id="home" className="h-auto lg:h-[46vw] flex items-center justify-center relative overflow-hidden pt-20 pb-20 lg:pl-[10%]">
       {/* Animated background image with parallax and pan */}
       {/* <motion.div 
         className="absolute inset-0 opacity-40"
