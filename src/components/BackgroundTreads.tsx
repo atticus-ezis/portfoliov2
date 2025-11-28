@@ -189,7 +189,7 @@ const BackgroundThreads = ({ color = [1, 1, 1], amplitude = 1, distance = 0, ena
         program.uniforms.uMouse.value[0] = 0.5;
         program.uniforms.uMouse.value[1] = 0.5;
       }
-      program.uniforms.iTime.value = t * 0.001;
+      program.uniforms.iTime.value = t * 0.0003;
 
       renderer.render({ scene: mesh });
       animationFrameId.current = requestAnimationFrame(update);
