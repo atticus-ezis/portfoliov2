@@ -10,9 +10,9 @@ const Hero = () => {
   const parallaxOffset = scrollY * 0.5;
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <section id="home" className="h-auto lg:h-[46vw] flex items-center justify-center relative overflow-hidden pt-20 pb-20">
       {/* Animated background image with parallax and pan */}
-      <motion.div 
+      {/* <motion.div 
         className="absolute inset-0 opacity-40"
         style={{ transform: `translateY(${parallaxOffset}px)` }}
         animate={{
@@ -30,7 +30,7 @@ const Hero = () => {
           alt="Background" 
           className="w-full h-full object-cover scale-110"
         />
-      </motion.div>
+      </motion.div> */}
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
@@ -80,10 +80,10 @@ const Hero = () => {
             <p className="text-xl md:text-2xl text-muted-foreground mb-6">
               Backend Developer
             </p>
-            <p className="text-lg text-muted-foreground max-w-2xl mb-8">
+            {/* <p className="text-lg text-muted-foreground max-w-2xl mb-8">
               Junior backend developer focused on Django REST Framework. Built accounting software for enterprise clients, 
               designing payment systems and implementing robust backend solutions with comprehensive testing.
-            </p>
+            </p> */}
 
             <div className="flex flex-wrap gap-4 justify-center md:justify-start text-sm text-muted-foreground">
               <a href="mailto:atticus.ezis@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
