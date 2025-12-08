@@ -7,7 +7,8 @@ const Projects = () => {
   const projects = [
     {
       title: "Accounting Software Backend",
-      description: "Built comprehensive accounting software backend for Rizal Memorial Colleges Inc, handling payments, journal entries, and fee management",
+      description:
+        "Built comprehensive accounting software backend for Rizal Memorial Colleges Inc, handling payments, journal entries, and fee management",
       technologies: ["Django REST", "PostgreSQL", "Celery", "Redis"],
       highlights: [
         "Authored 10 of 63 total models (16%)",
@@ -17,19 +18,40 @@ const Projects = () => {
       ],
     },
     {
-      title: "AI Chatbot with RAG",
-      description: "Personalized AI chatbot utilizing Retrieval-Augmented Generation (RAG) techniques for enhanced contextual responses",
-      technologies: ["Python", "React", "TypeScript", "AWS"],
+      title: "Bot Analytics",
+      description:
+        "A site designed to bait bot traffic with fake api endpoints and contact forms. Records common injection techniques. Captures meta data about bots. Provides comprehensive filtering.",
+      technologies: ["Django REST", "PostgreSQL", "Next.js", "React", "Docker", "Supabase", "Vercel"],
       highlights: [
-        "Implemented RAG architecture",
+        "Injection detection and logging.",
         "Full-stack development",
-        "AWS cloud hosting",
-        "Real-time chat interface",
+        "Docker Deployment",
+        "Custom filtering, ordering and grouping.",
+        "Relational Database Design",
+        "Test Coverage",
       ],
+      link: "https://bot-farm-frontend.vercel.app/",
+    },
+    {
+      title: "Hybrid AUthentication JWT w/ Cookies",
+      description: "Authentication backend that returns JWT for both browser and mobile clients.",
+      technologies: ["Django REST", "PostgreSQL", "Next.js", "React", "Docker", "Supabase", "Vercel"],
+      highlights: [
+        "Conditional JWT generation.",
+        "Email verification and password reset.",
+        "CSRF and Cookie based authentication.",
+        "Pre-commit",
+        "API Documentation",
+        "Cookiecutter Template",
+        "Test Coverage",
+        "Error Logging",
+      ],
+      link: "https://github.com/atticus-ezis/django_hybird_auth_cookiecutter",
     },
     {
       title: "AmericanLiterature Enhancement",
-      description: "Contributed to high-traffic website (400K+ monthly visitors) by replacing static content with dynamic database queries",
+      description:
+        "Contributed to high-traffic website (400K+ monthly visitors) by replacing static content with dynamic database queries",
       technologies: ["Django", "PostgreSQL", "Python"],
       highlights: [
         "Improved maintainability",
@@ -37,10 +59,34 @@ const Projects = () => {
         "Enhanced performance",
         "Database optimization",
       ],
+      link: "https://americanliterature.com/",
+    },
+    {
+      title: "Personalized AI Chatbot Interviewer",
+      description:
+        "Personalized AI chatbot utilizing Retrieval-Augmented Generation (RAG) techniques for enhanced contextual responses",
+      technologies: ["React", "TypeScript", "Open AI API"],
+      highlights: ["Implemented RAG architecture", "Chat history"],
+      link: "https://next-js-portfolio-git-main-atticus-ezis-projects.vercel.app/#ai",
+    },
+    {
+      title: "The Mix",
+      description: "A platform to showcase and share my music",
+      technologies: ["JavaScript", "HTML", "CSS", "Firebase"],
+      highlights: ["SHuffle playlist generator", "Like animation and counter", "Download functionality"],
+      link: "https://atticus-ezis.github.io/BEATS-BY-ME/",
+    },
+    {
+      title: "Ear Dojo",
+      description: "A platform to help musicians train their ear by recognizing pitch intervals",
+      technologies: ["JavaScript", "HTML", "CSS"],
+      highlights: ["Pitch interval recognition", "Audio playback", "Progress tracking", "Level Progression"],
+      link: "https://atticus-ezis.github.io/Ear-Training/",
     },
     {
       title: "RPG Game & Pokémon Search",
-      description: "Interactive web applications built as part of JavaScript certification, demonstrating frontend skills and API integration",
+      description:
+        "Interactive web applications built as part of JavaScript certification, demonstrating frontend skills and API integration",
       technologies: ["JavaScript", "HTML", "CSS", "APIs"],
       highlights: [
         "Game mechanics implementation",
@@ -54,7 +100,7 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20">
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -78,31 +124,36 @@ const Projects = () => {
               whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
             >
               <Card className="bg-card border-border backdrop-blur-sm h-full">
-              <CardHeader>
-                <CardTitle className="text-xl">{project.title}</CardTitle>
-                <CardDescription>{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-1 mb-4 text-sm text-muted-foreground">
-                  {project.highlights.map((highlight, i) => (
-                    <li key={i} className="flex gap-2">
-                      <span className="text-primary">•</span>
-                      <span>{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-2 py-1 bg-muted rounded text-xs border border-border"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                <CardHeader>
+                  <CardTitle className="text-xl">{project.title}</CardTitle>
+                  <CardDescription>{project.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-1 mb-4 text-sm text-muted-foreground">
+                    {project.highlights.map((highlight, i) => (
+                      <li key={i} className="flex gap-2">
+                        <span className="text-primary">•</span>
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech, i) => (
+                      <span key={i} className="px-2 py-1 bg-muted rounded text-xs border border-border">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  {project.link && (
+                    <Button asChild variant="outline" size="sm" className="w-full mt-4">
+                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        View Project
+                      </a>
+                    </Button>
+                  )}
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </div>

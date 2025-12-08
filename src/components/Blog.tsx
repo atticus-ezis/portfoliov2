@@ -6,36 +6,46 @@ import { motion } from "framer-motion";
 const Blog = () => {
   const featuredPost = {
     title: "JWT Hybrid Authentication with Django & dj-rest-auth",
-    description: "A useful Django CookieCutter I designed with fully functional API endpoints for account management using JWT. Mobile and browser friendly.",
-    date: "Published on Medium",
-    readTime: "10 min read",
+    description:
+      "A useful Django CookieCutter I designed with fully functional API endpoints for account management using JWT. Mobile and browser friendly.",
+    date: "Nov 12, 2025",
+    readTime: "13 min read",
     tags: ["Django", "JWT", "Authentication", "Backend"],
     link: "https://medium.com/@atticus.ezis/jwt-hybrid-authentication-with-django-dj-rest-auth-6b080eb04a1a",
   };
 
   const posts = [
     {
-      title: "Understanding Common Authentication Methods",
-      description: "Helpful way to understand commonly used authentication methods. A comprehensive guide for developers.",
-      date: "Published on Medium",
-      readTime: "7 min read",
+      title: "Understanding JWT, Refresh Tokens, Blacklists and Rotations",
+      description: "A non-technical way to understand Authorization Tokens for Backend Devs.",
+      date: "Nov 7, 2025",
+      readTime: "4 min read",
       tags: ["Authentication", "Security", "Backend"],
-      link: "https://medium.com/@atticus.ezis",
+      link: "https://medium.com/@atticus.ezis/understanding-jwt-refresh-tokens-blacklists-and-rotations-9a740cc619fa",
     },
     {
-      title: "Understanding JWT Refresh Tokens, Blacklists & Rotations",
-      description: "A very useful and non-technical way to understand Authorization Tokens for Backend Devs.",
-      date: "Published on Medium",
+      title: "Understanding Cookies, CSRF-Tokens & XSS Attacks",
+      description: "Helpful way to understand common security vulnerabilities and how to prevent them.",
+      date: "Nov 10, 2025",
       readTime: "8 min read",
       tags: ["JWT", "Security", "Tokens"],
       link: "https://medium.com/@atticus.ezis/understanding-jwt-refresh-tokens-blacklists-and-rotations-9a740cc619fa",
+    },
+    {
+      title: "Deploying Django to Render with Docker",
+      description:
+        "Guide to deploying a Django project to Render. Showcase a multi-build setpu in Dockerfile, entrypoint and compose file.",
+      date: "Dec 3, 2025",
+      readTime: "7 min read",
+      tags: ["Django Rest Framework", "Backend Development", "Python", "Docker"],
+      link: "https://medium.com/@atticus.ezis/deploying-django-to-render-with-docker-becec599d097",
     },
   ];
 
   return (
     <section id="blog" className="py-20">
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,10 +82,7 @@ const Blog = () => {
             <CardContent>
               <div className="flex flex-wrap gap-2 mb-6">
                 {featuredPost.tags.map((tag, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1 bg-muted rounded-full text-sm border border-border"
-                  >
+                  <span key={i} className="px-3 py-1 bg-muted rounded-full text-sm border border-border">
                     {tag}
                   </span>
                 ))}
@@ -114,10 +121,7 @@ const Blog = () => {
                 <CardContent className="pt-0">
                   <div className="flex flex-wrap gap-2 mb-4">
                     {post.tags.map((tag, i) => (
-                      <span
-                        key={i}
-                        className="px-2 py-1 bg-muted rounded text-xs border border-border"
-                      >
+                      <span key={i} className="px-2 py-1 bg-muted rounded text-xs border border-border">
                         {tag}
                       </span>
                     ))}
