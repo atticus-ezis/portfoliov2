@@ -1,73 +1,85 @@
-# Welcome to your Lovable project
+# Portfolio Website
 
-## Project info
+A modern, interactive portfolio website built with React, TypeScript, and Vite. Features WebGL-powered background animations, smooth transitions, and a responsive design.
 
-**URL**: https://lovable.dev/projects/b046ffbb-95cf-4386-8e06-0c05d77e3eb3
+## Features
 
-## How can I edit this code?
+- **Interactive WebGL Background** - Custom animated threads with mouse interaction
+- **Responsive Design** - Fully responsive layout that works on all devices
+- **Dark/Light Theme** - Theme toggle with persistent preferences
+- **Smooth Animations** - Framer Motion powered transitions and scroll animations
+- **Modern UI Components** - Built with shadcn/ui and Tailwind CSS
+- **Sections**:
+  - Hero section with profile
+  - Skills showcase
+  - Work experience timeline
+  - Featured projects with links
+  - Blog section
+  - Contact form
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- **Frontend**: React 18, TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui (Radix UI)
+- **Animations**: Framer Motion
+- **WebGL**: OGL
+- **Routing**: React Router
+- **Icons**: Lucide React, React Icons
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b046ffbb-95cf-4386-8e06-0c05d77e3eb3) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 18+ (or Bun)
+- npm, yarn, pnpm, or bun
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+# Install dependencies
+npm install
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# or with bun
+bun install
 ```
 
-**Edit a file directly in GitHub**
+### Development
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# Start development server
+npm run dev
 
-**Use GitHub Codespaces**
+# or with bun
+bun run dev
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The site will be available at `http://localhost:5173`
 
-## What technologies are used for this project?
+### Build
 
-This project is built with:
+```bash
+# Build for production
+npm run build
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+# Preview production build
+npm run preview
+```
 
-## How can I deploy this project?
+## Project Structure
 
-Simply open [Lovable](https://lovable.dev/projects/b046ffbb-95cf-4386-8e06-0c05d77e3eb3) and click on Share -> Publish.
+```
+src/
+├── components/     # React components
+│   ├── ui/        # shadcn/ui components
+│   └── ...        # Feature components
+├── pages/         # Page components
+├── hooks/         # Custom React hooks
+├── lib/           # Utility functions
+└── assets/        # Static assets
+```
 
-## Can I connect a custom domain to my Lovable project?
+## License
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Private project - All rights reserved
