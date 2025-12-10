@@ -2,6 +2,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import { motion } from "framer-motion";
+import svamImage from "@/assets/svamaa.png";
+import botImage from "@/assets/botfarm.png";
+import hybridauth from "@/assets/hybridauth.png";
+import amlit from "@/assets/amlit.png";
+import ai from "@/assets/AIBot.png";
+import mix from "@/assets/mix.png";
 
 const Projects = () => {
   const projects = [
@@ -31,6 +37,7 @@ const Projects = () => {
         "Test Coverage",
       ],
       link: "https://bot-farm-frontend.vercel.app/",
+      image: botImage,
     },
     {
       title: "Hybrid AUthentication JWT w/ Cookies",
@@ -47,7 +54,17 @@ const Projects = () => {
         "Error Logging",
       ],
       link: "https://github.com/atticus-ezis/django_hybird_auth_cookiecutter",
+      image: hybridauth,
     },
+    {
+      title: "SVAM (Saitn Vincent Academy of Maragusan Alumni Association), webpage",
+      description: "Website for alumni memebrs to network and share upcoming school related events.",
+      technologies: ["React", "Tailwind CSS"],
+      highlights: ["I designed the 'Leadership Team' page with a dynamic grid of alumni members and their profiles."],
+      link: "https://svam-alumni.vercel.app/",
+      image: svamImage,
+    },
+
     {
       title: "AmericanLiterature Enhancement",
       description:
@@ -60,6 +77,7 @@ const Projects = () => {
         "Database optimization",
       ],
       link: "https://americanliterature.com/",
+      image: amlit,
     },
     {
       title: "Personalized AI Chatbot Interviewer",
@@ -68,6 +86,7 @@ const Projects = () => {
       technologies: ["React", "TypeScript", "Open AI API"],
       highlights: ["Implemented RAG architecture", "Chat history"],
       link: "https://next-js-portfolio-git-main-atticus-ezis-projects.vercel.app/#ai",
+      image: ai,
     },
     {
       title: "The Mix",
@@ -75,6 +94,7 @@ const Projects = () => {
       technologies: ["JavaScript", "HTML", "CSS", "Firebase"],
       highlights: ["SHuffle playlist generator", "Like animation and counter", "Download functionality"],
       link: "https://atticus-ezis.github.io/BEATS-BY-ME/",
+      image: mix,
     },
     {
       title: "Ear Dojo",
@@ -123,12 +143,17 @@ const Projects = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
             >
-              <Card className="bg-card border-border backdrop-blur-sm h-full">
+              <Card className="bg-card border-border backdrop-blur-sm h-full flex flex-col">
+                {project.image && (
+                  <div className="w-full h-48 overflow-hidden border-b border-border">
+                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                  </div>
+                )}
                 <CardHeader>
                   <CardTitle className="text-xl">{project.title}</CardTitle>
                   <CardDescription>{project.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-1">
                   <ul className="space-y-1 mb-4 text-sm text-muted-foreground">
                     {project.highlights.map((highlight, i) => (
                       <li key={i} className="flex gap-2">
