@@ -8,9 +8,28 @@ import hybridauth from "@/assets/hybridauth.png";
 import amlit from "@/assets/amlit.png";
 import ai from "@/assets/AIBot.png";
 import mix from "@/assets/mix.png";
+import atsResumeBuilder from "@/assets/atsResumeBuilder.png";
 
 const Projects = () => {
   const projects = [
+    {
+      title: "ATS Rsume Builder",
+      description:
+        "Full Stack self-hosted application that allows users to copy paste a job description, upload a pdf of their current resume and generate a ats-ready resume and or cover letter. Documents are immediately ready for PDF export, maintains version history, can be edited directly by user and even re-prompted.",
+      technologies: ["Django REST", "PostgreSQL", "Celery", "Redis", "Next.js", "React", "TypeScript"],
+      highlights: [
+        "CI/CD Pipeline",
+        "Multi-Network Docker Deployment",
+        "VPS Cloud Deployment",
+        "Idempotent Design",
+        "Version Histories",
+        "Asynchronous Services",
+        "Frontend Development",
+        "OAuth2 Authentication",
+      ],
+      link: "https://www.ats-resume-builder.com/",
+      image: atsResumeBuilder,
+    },
     {
       title: "Accounting Software Backend",
       description:
